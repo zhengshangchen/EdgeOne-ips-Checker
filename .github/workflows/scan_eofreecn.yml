@@ -46,7 +46,7 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
+        git pull --rebase origin main
         git add available_eofreecn_ips.txt
         git commit -m "📈 $(date +'%Y-%m-%d %H:%M:%S')" || exit 0
-        git pull --rebase origin main
         git push
