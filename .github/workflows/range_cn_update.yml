@@ -3,7 +3,7 @@ name: Weekly IP CN Range Update
 on:
   schedule:
     # 每周日晚上10点运行 (UTC时间)
-    - cron: '0 22 * * 0'
+    - cron: '0 12 * * 0'
   workflow_dispatch: # 允许手动触发
 
 permissions:
@@ -154,7 +154,6 @@ jobs:
           # 配置Git并提交
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git pull origin ${{ github.ref_name }} --rebase
           git add range-cn.txt
           git commit -m "$commit_msg"
           git push origin HEAD:${{ github.ref_name }}
