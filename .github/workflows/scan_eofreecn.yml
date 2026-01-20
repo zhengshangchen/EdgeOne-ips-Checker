@@ -8,6 +8,10 @@ on:
   schedule:
     - cron: '45 3 */7 * *'
 
+concurrency:
+  group: scanner
+  cancel-in-progress: false
+
 jobs:
   scan-ips:
     runs-on: ubuntu-latest
